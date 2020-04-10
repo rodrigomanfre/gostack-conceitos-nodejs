@@ -21,8 +21,8 @@ function validarUuid(request, response, next) {
 function validarLike(request, response, next) {
   const { likes } = request.body;
 
-  if (likes !== 0) {
-    response.status(400).json({ error: 'Initial like error.' });
+  if (!likes || likes > 0) {
+    request.body.likes = 0;
   }
   return next();
 }
@@ -39,10 +39,10 @@ app.post("/repositories", validarLike, (request, response) => {
   const repository = { id: uuid(), title, url, techs, likes };
   repositories.push(repository);
 
-  response.json(repositories);
+  response.json(repository);
 });
 
-app.put("/repositories/:id", validarUuid, (request, response) => {
+app.put("/repositories/:id", validarUuid, validarLike, (request, response) => {
   const { id } = request.params;
   const { title, url, techs, likes } = request.body;
   const repositoryIndex = repositories.findIndex(r => r.id === id);

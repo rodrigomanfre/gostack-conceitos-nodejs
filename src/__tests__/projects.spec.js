@@ -7,16 +7,16 @@ describe("Projects", () => {
     const response = await request(app)
       .post("/repositories")
       .send({
-        url: "https://github.com/Rocketseat/umbriel",
-        title: "Umbriel",
+        url: "https://github.com/rodrigomanfre/gostack-conceitos-nodejs",
+        title: "Conceitos NodeJS",
         techs: ["Node", "Express", "TypeScript"]
       });
 
     expect(isUuid(response.body.id)).toBe(true);
 
     expect(response.body).toMatchObject({
-      url: "https://github.com/Rocketseat/umbriel",
-      title: "Umbriel",
+      url: "https://github.com/rodrigomanfre/gostack-conceitos-nodejs",
+      title: "Conceitos NodeJS",
       techs: ["Node", "Express", "TypeScript"],
       likes: 0
     });
@@ -26,8 +26,8 @@ describe("Projects", () => {
     const repository = await request(app)
       .post("/repositories")
       .send({
-        url: "https://github.com/Rocketseat/umbriel",
-        title: "Umbriel",
+        url: "https://github.com/rodrigomanfre/gostack-conceitos-nodejs",
+        title: "Conceitos NodeJS",
         techs: ["Node", "Express", "TypeScript"]
       });
 
@@ -37,8 +37,8 @@ describe("Projects", () => {
       expect.arrayContaining([
         {
           id: repository.body.id,
-          url: "https://github.com/Rocketseat/umbriel",
-          title: "Umbriel",
+          url: "https://github.com/rodrigomanfre/gostack-conceitos-nodejs",
+          title: "Conceitos NodeJS",
           techs: ["Node", "Express", "TypeScript"],
           likes: 0
         }
@@ -50,15 +50,15 @@ describe("Projects", () => {
     const repository = await request(app)
       .post("/repositories")
       .send({
-        url: "https://github.com/Rocketseat/umbriel",
-        title: "Umbriel",
+        url: "https://github.com/rodrigomanfre/gostack-conceitos-nodejs",
+        title: "Conceitos NodeJS",
         techs: ["Node", "Express", "TypeScript"]
       });
 
     const response = await request(app)
       .put(`/repositories/${repository.body.id}`)
       .send({
-        url: "https://github.com/Rocketseat/unform",
+        url: "https://github.com/rodrigomanfre/gostack-conceitos-nodejs",
         title: "Unform",
         techs: ["React", "ReactNative", "TypeScript", "ContextApi"]
       });
@@ -66,7 +66,7 @@ describe("Projects", () => {
     expect(isUuid(response.body.id)).toBe(true);
 
     expect(response.body).toMatchObject({
-      url: "https://github.com/Rocketseat/unform",
+      url: "https://github.com/rodrigomanfre/gostack-conceitos-nodejs",
       title: "Unform",
       techs: ["React", "ReactNative", "TypeScript", "ContextApi"]
     });
@@ -82,8 +82,8 @@ describe("Projects", () => {
     const repository = await request(app)
       .post("/repositories")
       .send({
-        url: "https://github.com/Rocketseat/umbriel",
-        title: "Umbriel",
+        url: "https://github.com/rodrigomanfre/gostack-conceitos-nodejs",
+        title: "Conceitos NodeJS",
         techs: ["React", "ReactNative", "TypeScript", "ContextApi"]
       });
 
@@ -102,8 +102,8 @@ describe("Projects", () => {
     const response = await request(app)
       .post("/repositories")
       .send({
-        url: "https://github.com/Rocketseat/umbriel",
-        title: "Umbriel",
+        url: "https://github.com/rodrigomanfre/gostack-conceitos-nodejs",
+        title: "Conceitos NodeJS",
         techs: ["Node", "Express", "TypeScript"]
       });
 
