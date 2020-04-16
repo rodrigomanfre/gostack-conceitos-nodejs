@@ -77,7 +77,7 @@ app.post("/repositories/:id/like", validarUuid, (request, response) => {
   }
 
   repository.likes++;
-  return response.json(repository);
+  return response.json({"likes": repository.likes});
 
 });
 
